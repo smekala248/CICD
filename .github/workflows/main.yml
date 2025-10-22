@@ -1,13 +1,13 @@
-name: JMeter Performance Test
+name: Run Jmeter tests
 
 on:
-  push:
-    branches:
-      - main
+  
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
-  run-jmeter-test:
+  jmeter-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,6 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
           java-version: '11'
 
       - name: Download Apache JMeter
